@@ -1,0 +1,26 @@
+[
+    {
+      "name": "Open a Doc",
+      "description": "This is where the details should be submitted."
+    },
+    {
+      "name": "Problem Solving",
+      "description": "Need to solve 4 problems."
+    },
+    {
+      "name": "Simple to-do app",
+      "description": "Need to create simple to-do app using Rest API."
+    },
+    {
+      "name": "Creating git repository",
+      "description": "Should create git repository for both client and server side."
+    },
+    {
+      "name": "Multiple Commits",
+      "description": "There should be at least 4 commits each."
+    },
+    {
+      "name": "Submitting the Doc link",
+      "description": "Should submit the doc link to the form."
+    }
+  ]
