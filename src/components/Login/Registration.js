@@ -47,7 +47,7 @@ const Registration = () => {
         <Helmet>
             <title>To-Do App-Register</title>
         </Helmet>
-            <h1 className='md:text-[4vw] md:py-6 text-2xl text-[#96be25] font-bold shadow-2xl shadow-white mx-16'>Registration Form</h1>
+            <h1 className='md:text-[4vw] md:py-6 text-2xl text-[#96be25] font-bold shadow-2xl shadow-black mx-16'>Registration Form</h1>
             <section className="h-screen mb-96">
                 <div className="container px-6 py-12 h-full">
                     <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">

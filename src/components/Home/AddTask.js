@@ -1,15 +1,12 @@
 import React, { useRef } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
-import auth from '../../firebase.init';
 
 const AddTask = () => {
     const nameRef = useRef('');
     const descriptionRef = useRef('');
 
     const { register, handleSubmit } = useForm();
-    const [user] = useAuthState(auth);
     const onSubmit = () => {
         const data = {
             "name": nameRef.current.value,
@@ -99,7 +96,7 @@ const AddTask = () => {
                             shadow-lg shadow-white hover:shadow-xl hover:shadow-white
                             transition
                             duration-150
-                            ease-in-out">Add</button>
+                            ease-in-out">Add Task</button>
                         </form>
                     </div>                
                 </div>

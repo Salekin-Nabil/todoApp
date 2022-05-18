@@ -1,22 +1,17 @@
-import { signOut } from 'firebase/auth';
 import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../firebase.init';
+import { useNavigate } from 'react-router-dom';
 import AddTask from './AddTask';
 
 const Home = () => {
-    const [user] = useAuthState(auth);
+    const navigate = useNavigate();
 
-    const handleSignOut = () =>{
-        signOut(auth);
-    }
     return (
-        <div className='mx-8'>
-            <div className='flex justify-between items-center'>
-                <h1 className='text-3xl font-bold my-10'>To-Do App</h1>
-                <button onClick={handleSignOut} className='text-xl text-white bg-[#96be25] py-2 px-4 rounded-lg'>Sign Out</button>
-            </div>
+        <div className=''>
             <AddTask></AddTask>
+            <div className='md:flex justify-around items-center'>
+                <button onClick={()=>navigate('/ViewTask')} className='text-xl text-white bg-[#96be25] hover:bg-[#374904] py-2 px-16 mb-10 rounded-lg'>View Task Details</button>
+                <button className='text-xl text-white bg-red-600 hover:bg-red-900 py-2 px-28 mb-10 rounded-lg'>Complete</button>
+            </div>
         </div>
     );
 };
