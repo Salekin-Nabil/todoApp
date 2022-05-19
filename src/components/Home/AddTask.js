@@ -1,10 +1,23 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const AddTask = () => {
     const nameRef = useRef('');
     const descriptionRef = useRef('');
+    const navigate = useNavigate();
+    const [close, setClose] =useState(true);
+    const handleComplete = () => {
+        setClose(false);
+        alert(`Successfully Completed...!!!!`);
+    };
+    const handleClose = () =>{
+        setClose(true);
+    }
+
+    const [name, setName] = useState('');
+    const [description, setDescription] = useState('');
+    
 
     const { register, handleSubmit } = useForm();
     const onSubmit = () => {
@@ -25,11 +38,19 @@ const AddTask = () => {
         .then(result =>{
             console.log(result);
         } );
-        
-        toast('The new product is successfully added.');
+        setName(nameRef.current.value);
+        setDescription(descriptionRef.current.value);
+        alert('The new task is successfully added.');
     };
     return (
         <div className=''>
+            {
+                close ? <></>
+                : <div className="alert bg-yellow-100 rounded-lg py-5 px-6 mb-3 text-base text-yellow-700 inline-flex items-center w-full alert-dismissible fade show" role="alert">
+                <p className='line-through'><strong className="mr-1">{name} </strong> {description}</p>
+                <button onClick={handleClose} type="button" className="btn-close box-content w-4 h-4 p-1 ml-auto text-yellow-900 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-yellow-900 hover:opacity-75 hover:no-underline" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            }
             <h1 className='text-[#96be25] text-5xl mb-8 font-bold shadow-lg shadow-black hover:shadow-xl hover:shadow-black mx-[1vw] py-[1vw] rounded-lg my-6'>Task Insertion</h1>
             <div className='flex justify-center my-20'>
                 <div className="block p-6 rounded-xl shadow-lg shadow-black hover:shadow-xl hover:shadow-black bg-white w-full mx-4 md:mx-20">
@@ -100,6 +121,10 @@ const AddTask = () => {
                         </form>
                     </div>                
                 </div>
+                <div className='md:flex justify-around items-center'>
+                <button onClick={()=>navigate('/ViewTask')} className='text-xl text-white bg-[#96be25] hover:bg-[#374904] py-2 px-16 mb-10 rounded-lg'>View Task Details</button>
+                <button onClick={handleComplete} className='text-xl text-white bg-red-600 hover:bg-red-900 py-2 px-28 mb-10 rounded-lg'>Complete</button>
+            </div>
             </div>
     );
 };

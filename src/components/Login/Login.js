@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import Helmet from 'react-helmet';
 import { Link, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../firebase.init';
 import Loading from '../Loading/Loading';
 import SocialLogin from './SocialLogin';
@@ -139,6 +139,7 @@ const Login = () => {
                     </div>
                 </div>
             </section>
+            <ToastContainer />
         </div>
     );
 };
